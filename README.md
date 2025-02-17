@@ -1,2 +1,3 @@
-# Blocktanks-mods-list
-A list of my visual mods/addons for blocktanks.net
+### This is where I keep my Blocktanks mods in
+
+Each folder will have a video and/or instructions.txt for installation
