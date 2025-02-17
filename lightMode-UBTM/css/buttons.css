@@ -1,0 +1,167 @@
+button,
+a:where(.button) {
+    cursor:pointer;
+    z-index:5;
+    font-family: "Roboto";
+    color: #ffffff;
+    font-size: 30px;
+    background: var(--blue, #345cd2);
+    padding: 10px 20px 10px 20px;
+    margin:10px;
+    text-decoration: none;
+    border:none;
+    border-radius: 6px;
+    transition:0.3s ease-out;
+}
+
+button:hover,
+a:where(.button):hover {
+    background: var(--blue, #345cd2);
+}
+
+a:where(.button) {
+    display: inline-block;
+}
+
+button:disabled {
+    opacity:0.5;
+    cursor:default;
+}
+
+button:where(.link) {
+    margin: unset;
+    padding: unset;
+    color: unset;
+    background: unset;
+    font-size: unset;
+    border-radius: unset;
+}
+button:where(.link):focus-visible {
+    outline-offset: 1px;
+}
+button:where(.link):hover {
+    background: unset;
+}
+
+.buttonPrimary{
+    background: var(--red, #e72b2b);
+    filter:none;
+    transition:0.3s ease-out;
+}
+
+/*.buttonPrimary.invalidButton:hover{
+    filter:drop-shadow(1px 1px 5px #999) drop-shadow(-1px -1px 5px #999);
+}*/
+
+.buttonPrimary:hover{
+    background: linear-gradient(180deg, #e72b2b, #d22727);
+    filter: drop-shadow(2px 2px 5px #e72b2b) drop-shadow(-2px -2px 5px #e72b2b);
+}
+
+.buttonSecondary {
+    background: var(--blue, #345cd2) !important;
+    filter:none;
+    transition:0.3s ease-out;
+}
+.buttonSecondary:hover{
+    background: var(--blue, #345cd2) !important;
+    filter: drop-shadow(2px 2px 5px #345cd2) drop-shadow(-2px -2px 5px #345cd2);
+}
+
+.buttonNeutral {
+    background: linear-gradient(180deg, #777, #999) !important;
+    transition:0.3s ease-out;
+}
+.buttonNeutral:hover{
+    background: linear-gradient(180deg, #666, #888) !important;
+    filter:drop-shadow(1px 1px 5px #666) drop-shadow(-1px -1px 5px #666)
+}
+
+.closeButton{
+    font-family:Verdana;
+    font-weight:700;
+    background:none;
+    margin:0px;
+    padding:0px;
+    position:absolute;
+    right:10px;
+    top:10px;
+    width:50px;
+    height:50px;
+    border-radius:5px;
+    font-size:40px;
+    cursor:pointer;
+    color: var(--closeButton);
+    border:3px solid var(--closeButton);
+    transition:.2s;
+}
+.closeButton:hover,
+.closeButton:active {
+    background: linear-gradient(180deg, #345cd2, #2e51b9); /*var(--blue, ---);*/
+}
+.closeButton:active,
+.closeButton:focus-visible {
+    background: var(--blue, #345cd2);
+    color:white;
+    border:3px dashed var(--blue, #345cd2); /*var(--blue, ---)*/
+}
+
+.vipLabel{
+    color:white;
+    background: var(--gold0, #edb01a);
+    display:inline-block;
+    padding:5px;
+    border-radius:5px;
+    transition:0.3s ease-out;
+}
+
+.vipLabel:hover{
+    font-style:italic; /* Unknown? */
+}
+
+.unselectedTab{
+    background: var(--unselectedTab-bg) !important;
+    color: var(--unselectedTab-color) !important;
+    cursor:pointer;
+    transition:0.3s ease-out;
+}
+
+.unselectedTab:hover{
+    color:#222 !important;
+    background:#eee !important;
+    cursor:pointer;
+    filter:drop-shadow(0.9px 0.9px 4px #ccc) drop-shadow(-0.9px -0.9px 9px #ccc);
+}
+
+.selectedTab{
+    color:white;
+    background: var(--blue, #455ad3);
+    filter:drop-shadow(1px 1px 5px #4154c6) drop-shadow(-1px -1px 10px #4154c6);
+}
+
+/*.selectedTab:hover{
+
+}*/
+
+#signup-prompt button:focus,#forgot-prompt button:focus,#settings button:focus, #login-prompt button:focus, #appearanceChanger button:focus{
+    opacity:0.5;
+    cursor:normal;
+}
+
+#signUpButton, #logInButton{
+        background:linear-gradient(180deg, #666, #444);
+}
+
+#feedback-nolt{
+    background: var(--gray);
+    color:white;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    border-radius:30px;
+    padding:5px 19px 2px 21px;
+    font-size:48px;
+    font-family: "Passion One";
+    z-index:10;
+    cursor:pointer;
+}
