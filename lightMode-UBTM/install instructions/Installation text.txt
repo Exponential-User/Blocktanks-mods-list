@@ -1,0 +1,31 @@
+Instructions for downloading, Inserting, Saving, and opening Developer Tools.
+
+1. Download the zip folder from github
+
+2. when finished downloading extract the contents of the zip folder
+
+3. Go to blocktanks.net
+
+4. Click on the three dots in the top right corner of the screen
+
+5. Click on "More Tools"
+
+6. Click on "Developer Tools"
+
+7. Click on the "Source" tab
+
+8. Click on the "Overrides" tab
+
+9. Click on "Select folder for overrides"
+
+10. Select the folder that you extracted the contents of the zip folder to
+
+11. Click on the "lightMode-UBTM" folder
+
+12. Click select folder
+
+13. Save all files that have the * in front of them
+
+14. Refresh the page
+
+15. Enjoy the mod
