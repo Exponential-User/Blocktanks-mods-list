@@ -176,7 +176,6 @@
 .teamTable td:first-child{
     width:60%;
     padding-left:10px;
-    font-size:2.5vmin;
 }
 .teamTable td:nth-child(2){
     width:12%;

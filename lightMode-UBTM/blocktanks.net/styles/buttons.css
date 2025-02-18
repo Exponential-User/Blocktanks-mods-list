@@ -80,7 +80,7 @@ button:where(.link):hover {
 .closeButton{
     font-family:Verdana;
     font-weight:700;
-    background:none;
+    background:linear-gradient(180deg, #c0c0c0, #bbb);
     margin:0px;
     padding:0px;
     position:absolute;
@@ -97,13 +97,13 @@ button:where(.link):hover {
 }
 .closeButton:hover,
 .closeButton:active {
-    background: linear-gradient(180deg, #345cd2, #2e51b9); /*var(--blue, ---);*/
+    background: linear-gradient(180deg, #a5a5a5, #969696); /*var(--blue, ---);*/
 }
 .closeButton:active,
 .closeButton:focus-visible {
-    background: var(--blue, #345cd2);
+    background: #949494;
     color:white;
-    border:3px dashed var(--blue, #345cd2); /*var(--blue, ---)*/
+    border:3px dashed #b9b9b9; /*var(--blue, ---)*/
 }
 
 .vipLabel{
