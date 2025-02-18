@@ -119,9 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			let g2 = g - 10;
 			let b2 = b - 10;
 
-			let RGB = 'rgb('+r2+','+g2+','+b2+');'
-			let RGB2 = 'rgb('+(r2-3)+','+(g2-3)+','+(b2-3)+');'
-			missionTabStyle.filter = 'drop-shadow(0px 0px 5px '+RGB+') drop-shadow(0px 0px 5px '+RGB2+')';
+			let RGB = 'rgb('+r2+','+g2+','+b2+')'
+			let RGB2 = 'rgb('+(r2-3)+','+(g2-3)+','+(b2-3)+')'
+			let root = document.documentElement;
+			// let currColor = getComputedStyle(root).getPropertyValue('--missions-selTab');
+			let MST = 'drop-shadow(0px 0px 5px '+RGB+') drop-shadow(0px 0px 10px '+RGB2+')';
+			root.style.setProperty('--missions-selTab', MST);
 			console.log("Finished loading mod!");
 		} catch (error) {
             console.error("Error:", error);

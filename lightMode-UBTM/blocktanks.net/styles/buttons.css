@@ -139,6 +139,10 @@ button:where(.link):hover {
     filter:drop-shadow(1px 1px 5px #4154c6) drop-shadow(-1px -1px 10px #4154c6);
 }
 
+#accountTabs-missions.selectedTab{
+    filter:var(--missions-selTab)
+}
+
 /*.selectedTab:hover{
 
 }*/

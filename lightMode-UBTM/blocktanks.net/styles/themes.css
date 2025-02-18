@@ -35,6 +35,7 @@
     --green: #60a37d;  /* Used for good/success messages */
     --green0: #a8ffad;
     --border: linear-gradient(45deg,#ddd,#444);
+    --mission-selTab: none;
 }
 
 .light {
