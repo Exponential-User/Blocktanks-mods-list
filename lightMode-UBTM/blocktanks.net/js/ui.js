@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-	ver = '0.0.5'
-	modName = ' Unofficial Blocktanks Mod.';
-	modName0 = ' Unofficial Blocktanks Mod.';
+	let ver = '0.0.6'
+	let modName = ' Unofficial Blocktanks Mod.';
+	let modName0 = ' Unofficial Blocktanks Mod.';
+	let once1 = false;
 	// TODO: Change to detect when the developer console is opened
 	for (let i = 1; i <= 4; i++) {
 		setTimeout(() => {
@@ -49,63 +50,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Mod
 	async function delay() {
-        try {
-            console.log("TEST :: Start");
-            await new Promise(resolve => setTimeout(resolve, 5000)); // 5000 milliseconds (5 seconds)
-            console.log("TEST :: End after delay");
-			console.log("Made by Unknownuser with a help of chatGPT since i can't code advanced lines like in some Javascript, HTML and CSS.\nBut I did create the arrow and border by myself in CP, I'm kinda new to digital art/Photoshop you might see some curves or other stuff, but try to ignore it okay?");
-			    if (credentials.guest) {
-					console.log('%cVERSION ' + ver + ' || Welcome '+credentials.username+' to the' + modName0, 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-					console.log('%cYou\'re logged in as a guest, Some of the UBTM features are unavailable','font-size:12px; color: #f00; font-weigth: bold;')
-				} else if (credentials?.username == 'unknownuser') {
-                    console.log('%cVERSION ' + ver +' || Welcome [Blocktanks Mod Creater] UnknownUser to the' + modName + 'The Mod is happy you\'re back!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                } else if (credentials?.roles?.developer) {
-                    if (credentials?.vip) {
-                        console.log('%cVERSION ' + ver + ' || Welcome [VIP] [Developer]' + credentials.displayName + ' to ' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                    } else if (!credentials?.vip) {
-                        console.log('%cVERSION ' + ver +' || Welcome [Developer] ' + credentials.displayName + ' to' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                    } else if (credentials?.username == 'kevdude') {
-						console.log('%cVERSION ' + ver +' || Welcome [Owner] KevDude to the' + modName + 'Lets hope you like this mod! :)', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-					} else {console.log("???")}
-                } else if (credentials?.roles?.communityManager) {
-                    if (credentials?.vip) {
-                        console.log('%cVERSION ' + ver + ' || Welcome [VIP] [community Manager]' + credentials.displayName + ' to ' + modName + 'You\'re a very great helper on discord and blocktanks! :)', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                    } else {
-                        console.log('%cVERSION ' + ver +' || Welcome [Community Manager] ' + credentials.displayName + ' to' + modName + 'You\'re a very great helper on discord and blocktanks! :)', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                    }
-                } else if (credentials?.roles?.moderator) {
-                    if (credentials?.vip) {
-						console.log('%cVERSION ' + ver + ' || Welcome [VIP] [In-game Mods] ' + credentials.displayName + ' to the' + modName + 'I hope you like it!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
+        	try {
+				if (!once1) {
+            		console.log("TEST :: Start");
+            		await new Promise(resolve => setTimeout(resolve, 5000)); // 5000 milliseconds (5 seconds)
+            		console.log("TEST :: End after delay");
+					console.log("Made by Unknownuser with a help of chatGPT since i can't code advanced lines like in some Javascript, HTML and CSS.\nBut I did create the arrow and border by myself in CP, I'm kinda new to digital art/Photoshop you might see some curves or other stuff, but try to ignore it okay?");
+					
+					if (credentials.guest) {
+						console.log('%cVERSION ' + ver + ' || Welcome '+credentials.username+' to the' + modName0, 'font-size: 20px; color: #9d00ff; font-weight: bold;');
+						console.log('%cYou\'re logged in as a guest, Some of the UBTM features are unavailable','font-size:12px; color: #f00; font-weigth: bold;')
+					} else if (credentials?.username == 'unknownuser') {
+            		    console.log('%cVERSION ' + ver +' || Welcome [Blocktanks Mod Creater] UnknownUser to the' + modName + 'The Mod is happy you\'re back!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
+            		} else if (credentials?.roles?.developer) {
+            		    if (credentials?.vip) {
+            		        console.log('%cVERSION ' + ver + ' || Welcome [VIP] [Developer]' + credentials.displayName + ' to ' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
+            		    } else if (!credentials?.vip) {
+            		        console.log('%cVERSION ' + ver +' || Welcome [Developer] ' + credentials.displayName + ' to' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
+            		    } else if (credentials?.username == 'kevdude') {
+							console.log('%cVERSION ' + ver +' || Welcome [Owner] KevDude to the' + modName + 'Lets hope you like this mod! :)', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
+						} else {console.log("???")}
+            		} else if (credentials?.roles?.communityManager) {
+            		    if (credentials?.vip) {
+            		        console.log('%cVERSION ' + ver + ' || Welcome [VIP] [community Manager]' + credentials.displayName + ' to ' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
+            		    } else {
+            		        console.log('%cVERSION ' + ver +' || Welcome [Community Manager] ' + credentials.displayName + ' to' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
+            		    }
+            		} else if (credentials?.roles?.moderator) {
+            		    if (credentials?.vip) {
+							console.log('%cVERSION ' + ver + ' || Welcome [VIP] [In-game Mods] ' + credentials.displayName + ' to the' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
+						} else {
+							console.log('%cVERSION ' + ver + ' || Welcome [In-game Mods] ' + credentials.displayName + ' to the' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
+						}
+            		} else if (credentials?.vip) {
+            		    console.log('%cVERSION ' + ver + ' || Welcome [VIP] ' + credentials.displayName + ' to ' + modName0, 'font-size: 20px; color: #9d00ff; font-weight: bold;');
+            		} else {
+						if (credentials?.nameStatus?.shadowBan /* Deprecated? */ || credentials?.nameStatus?.questionable) {
+            		    	console.log('%cQuestionable User detected, This mod may not work Based on you\'re account Status.', 'font-size: 18px; color: #f00; font-weight: bold;');
+            			} else {
+            		    	console.log('%cVERSION ' + ver + ' || Welcome ' + credentials.displayName + ' to ' + modName0, 'font-size: 20px; color: #9d00ff; font-weight: bold;');
+            			}
+            		}
+
+            		console.warn('%c:: If you see another mod that looks like this and not by me, DO NOT DOWNLOAD/INSERT, It might be something Bad.', 'font-size: 18px; color: #fd3535; font-weight: bold;');
+            		
+					if (credentials?.nameStatus?.shadowBan /* Deprecated? */ || credentials?.nameStatus?.questionable) {
+            		    console.log('%cUser is Shadow Banned', 'font-size: 16px; color: #f00; font-weight: bold;')
+            		} else {
+            		    console.log('%cUser is not Shadow Banned', 'font-size: 16px; color: #3f0; font-weight: bold;')
+            		}
+
+            		console.log('%cif the game is broken, refresh, If that doesnt work show me the errors/warns, Then I\'ll try and see if i can fix it.', 'font-size: 15px; color: darkgrey; font-weight: bold;');
+            		
+					if (!credentials.guest) {
+						console.log('%cTotal Kills: ' + credentials.leaderboardComp.kills, 'font-size: 14px; color: #f00; font-weight: bold;');
+						console.log('%cTotal Deaths: ' + credentials.leaderboardComp.deaths, 'font-size: 14px; color: #ff479c; font-weight: bold;');
+						console.log('%cTotal bullets shot: ' + credentials.leaderboardComp.bullets, 'font-size: 14px; color: grey; font-weight: bold;');
+						console.log('%cJoined: ' + readableTimeStamp(credentials.joinDate), 'font-size: 14px; color: darkgreen; font-weight: bold;');
+						console.log('%cTotal XP: ' + credentials.xpInfo.xp + ', If Floored: ' + Math.floor(credentials.xpInfo.xp), 'font-size: 14px; color: green; font-weight: bold;');
+						console.log('%cTotal KD: ' + credentials.leaderboardComp.kd + ', If rounded: ' + Math.round(credentials.leaderboardComp.kd * 100) / 100, 'font-size: 14px; color: white; font-weight: bold;');
 					} else {
-						console.log('%cVERSION ' + ver + ' || Welcome [In-game Mods] ' + credentials.displayName + ' to the' + modName + 'I hope you like it!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
+						console.log('%cCan not get User stats, Logged in as a Guest', 'font-size: 15px; color: #f00; font-weight: bold;');
 					}
-                } else if (credentials?.vip) {
-                    console.log('%cVERSION ' + ver + ' || Welcome [VIP] ' + credentials.displayName + ' to ' + modName0, 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                } else {
-					if (credentials?.nameStatus?.shadowBan || credentials?.nameStatus?.questionable) {
-                    	console.log('%cShawdow banned User detected, This mod may not work Based on you\'re account Status.', 'font-size: 18px; color: #f00; font-weight: bold;');
-                	} else {
-                    	console.log('%cVERSION ' + ver + ' || Welcome ' + credentials.displayName + ' to ' + modName0, 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                	}
-            }
-            console.warn('%c:: If you see another mod that looks like this and not by me, DO NOT DOWNLOAD/INSERT, It might be something Bad.', 'font-size: 18px; color: #fd3535; font-weight: bold;');
-            if (credentials?.nameStatus?.shadowBan || credentials?.nameStatus?.questionable) {
-                console.log('%cUser is Shadow Banned', 'font-size: 16px; color: #f00; font-weight: bold;')
-            } else {
-                console.log('%cUser is not Shadow Banned', 'font-size: 16px; color: #3f0; font-weight: bold;')
-            }
-            console.log('%cif the game is broken, refresh, If that doesnt work show me the errors/warns, Then I\'ll try and see if i can fix it.', 'font-size: 15px; color: darkgrey; font-weight: bold;');
-            if (!credentials.guest) {
-				console.log('%cTotal Kills: ' + credentials.leaderboardComp.kills, 'font-size: 14px; color: #f00; font-weight: bold;');
-				console.log('%cTotal Deaths: ' + credentials.leaderboardComp.deaths, 'font-size: 14px; color: #ff479c; font-weight: bold;');
-				console.log('%cTotal bullets shot: ' + credentials.leaderboardComp.bullets, 'font-size: 14px; color: grey; font-weight: bold;');
-				console.log('%cJoined: ' + readableTimeStamp(credentials.joinDate), 'font-size: 14px; color: darkgreen; font-weight: bold;');
-				console.log('%cTotal XP: ' + credentials.xpInfo.xp + ', If Floored: ' + Math.floor(credentials.xpInfo.xp), 'font-size: 14px; color: green; font-weight: bold;');
-				console.log('%cTotal KD: ' + credentials.leaderboardComp.kd + ', If rounded: ' + Math.round(credentials.leaderboardComp.kd * 100) / 100, 'font-size: 14px; color: white; font-weight: bold;');
-			} else {
-				console.log('%cCan not get User stats, Logged in as a Guest', 'font-size: 15px; color: #f00; font-weight: bold;');
-			}
-			
+
+					once1 = true;
+				}
 			// Code
 			const missionTab = document.getElementById('accountTabs-missions');
 			const missionTabStyle = missionTab.style;
@@ -125,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			// let currColor = getComputedStyle(root).getPropertyValue('--missions-selTab');
 			let MST = 'drop-shadow(0px 0px 5px '+RGB+') drop-shadow(0px 0px 10px '+RGB2+')';
 			root.style.setProperty('--missions-selTab', MST);
+			
 			console.log("Finished loading mod!");
 		} catch (error) {
             console.error("Error:", error);
