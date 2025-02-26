@@ -1,4 +1,3 @@
-
 /* 
 
 Roles:
@@ -38,6 +37,7 @@ credentials.guest
 
 // Mod
 async function delay() {
+    console.debug("TEST :: Fallback triggered? " + fallbackT);
     try {
         if (!once1) {
             console.debug("TEST :: Start");
@@ -134,6 +134,3 @@ function setShadowColorTab() {
     
     localStorage.setItem('UBTM-ver', UBTMver);
 }
-
-document.addEventListener('DOMContentLoaded', delay); // if this doesn't work the last line will
-if (FLAGS.WINDOW_LOADED) {delay()}

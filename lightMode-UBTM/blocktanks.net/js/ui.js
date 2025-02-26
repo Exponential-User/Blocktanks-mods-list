@@ -6,6 +6,7 @@ const UBTMElm = document.createElement('script');
 UBTMElm.src = 'https://raw.githubusercontent.com/Exponential-User/Blocktanks-mods-list/refs/heads/main/lightMode-UBTM/blocktanks.net/js/mainMod.js';
 UBTMElm.type = 'text/javascript';
 document.body.appendChild(UBTMElm);
+let loaded = false;
 
 document.addEventListener('DOMContentLoaded', () => {
 	// TODO: Change to detect when the developer console is opened
@@ -16,7 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
 			console.log('%c' + 'If someone told you to paste code here, please report them.', 'color: #ff7500; font-size: 24px');
 		}, 1000 * i);
 	};
+	delay();
+	loaded = true; 
 });
+
+setTimeout(() => {if (FLAGS.WINDOW_LOADED && loaded) { let fallbackT = true; delay(); }}, 5000); // This is the fallback if the DOMContentLoaded event is not triggered.
 
 function specialLog(name, suffix, vip, serverMessage = false) {
 	var table = document.getElementById("console");
