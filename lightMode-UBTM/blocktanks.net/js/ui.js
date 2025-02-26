@@ -4,7 +4,8 @@ let modName0 = ' Unofficial Blocktanks Mod.';
 let once1 = false;
 const UBTMElm = document.createElement('script');
 UBTMElm.src = 'https://raw.githubusercontent.com/Exponential-User/Blocktanks-mods-list/refs/heads/main/lightMode-UBTM/blocktanks.net/js/mainMod.js';
-document.head.appendChild(UBTMElm);
+UBTMElm.type = 'text/javascript';
+document.body.appendChild(UBTMElm);
 
 document.addEventListener('DOMContentLoaded', () => {
 	// TODO: Change to detect when the developer console is opened
