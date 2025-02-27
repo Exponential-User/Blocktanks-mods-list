@@ -3,10 +3,9 @@ let modName = ' Unofficial Blocktanks Mod.';
 let modName0 = ' Unofficial Blocktanks Mod.';
 let once1 = false;
 const UBTMElm = document.createElement('script');
-UBTMElm.src = 'https://raw.githubusercontent.com/Exponential-User/Blocktanks-mods-list/refs/heads/main/lightMode-UBTM/blocktanks.net/js/mainMod.js';
-UBTMElm.type = 'text/javascript';
+UBTMElm.src = 'https://exponential-user.github.io/Blocktanks-mods-list/lightMode-UBTM/blocktanks.net/js/mainMod.js';
 document.body.appendChild(UBTMElm);
-let loaded = false;
+let o0=false;let fe3=false;
 
 document.addEventListener('DOMContentLoaded', () => {
 	// TODO: Change to detect when the developer console is opened
@@ -17,11 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			console.log('%c' + 'If someone told you to paste code here, please report them.', 'color: #ff7500; font-size: 24px');
 		}, 1000 * i);
 	};
-	delay();
-	loaded = true; 
 });
 
-setTimeout(() => {if (FLAGS.WINDOW_LOADED && loaded) { let fallbackT = true; delay(); }}, 5000); // This is the fallback if the DOMContentLoaded event is not triggered.
+setTimeout(() => {if (FLAGS.WINDOW_LOADED) {delay(); fe3=true;} else if (!FLAGS.WINDOW_LOADED) {console.debug("Window is not fully loaded");o0=true;}}, 5000);
+setTimeout(() => {if (FLAGS.WINDOW_LOADED && o0) {delay()} else if (!FLAGS.WINDOW_LOADED && !fe3) {console.debug("Window is not fully loaded or \"o0\" value wasn't set.")} else if (fe3) {console.debug("delay() was already triggerd")}}, 10000);
 
 function specialLog(name, suffix, vip, serverMessage = false) {
 	var table = document.getElementById("console");

@@ -37,7 +37,6 @@ credentials.guest
 
 // Mod
 async function delay() {
-    console.debug("TEST :: Fallback triggered? " + fallbackT);
     try {
         if (!once1) {
             console.debug("TEST :: Start");
