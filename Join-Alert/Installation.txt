@@ -15,6 +15,6 @@ WARNING: Will stop working after refreshing, leaving or reloading the page/websi
 ------------------
 
 NOTE: 
-This script is a work in progress, Because it will be intergrated into the ModLoader
+This script is a work in progress, It will be intergrated into the ModLoader in the future,
 but for now you can insert this script in the console.
 It will output all the people on first join, but after that it will only output the new people that join. (Currently an issue with the script)
