@@ -1,0 +1,20 @@
+WARNING: Will stop working after refreshing, leaving or reloading the page/website.
+
+---Installation---
+
+1. Open DevTools (F12 or Ctrl+Shift+I)
+
+2. Go to the Console tab
+
+3. Copy and paste the Join-Alert.js script into the console
+
+4. Press Enter
+
+5. The script will run and the alert will be displayed in the chat once someone joins the server
+
+------------------
+
+NOTE: 
+This script is a work in progress, Because it will be intergrated into the ModLoader
+but for now you can insert this script in the console.
+It will output all the people on first join, but after that it will only output the new people that join. (Currently an issue with the script)

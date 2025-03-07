@@ -80,7 +80,7 @@ button:where(.link):hover {
 .closeButton{
     font-family:Verdana;
     font-weight:700;
-    background:none/*linear-gradient(180deg, #c0c0c0, #bbb)*/;
+    background:none;
     margin:0px;
     padding:0px;
     position:absolute;
