@@ -80,4 +80,4 @@ function handler(type, msg = 'No message provided', specialLog1 = '', specialLog
     }
 }
 
-const interval = setInterval(getData, delay1);
+setInterval(getData, delay1);
