@@ -8,7 +8,7 @@ Please open a new issue in the Issues tab, With errors/warns and mod name provid
 > The ModLoader is WIP and will not work yet, When the loader is released then the mods listed here will reqiure it
 
 ## lightMode-UBTM
-The UBTM mod does not require anything, This goes for visuals, If you like the classic/cartoony style then don't get this mod.
+The UBTM mod does not require anything, This goes for visuals, If you like the classic/cartoony style then don't use this.
 
 UBTM gives you shadows, gradients, some animated buttons/weapons, and text decorations.
 
