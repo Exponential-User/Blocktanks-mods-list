@@ -20,8 +20,8 @@ This does not support guests yet.
 
 The joining/leaving message only shows to you.
 
-This has a delay like around 3-5 seconds (Tested this in a minute, I don't know how accurate it is).
-If you want to change the delay time, change this:
+This has a respones time like around 3-5 seconds (Tested this in a minute, I don't know how accurate it is).
+If you want to change the delay that checks for new players, change this:
 ```js
 const delay1 = 750; // At line 4
 ```
