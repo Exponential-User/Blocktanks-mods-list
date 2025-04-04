@@ -36,7 +36,7 @@ async function getData() {
 
     for (const key in lobbyData) {
         const players = lobbyData[key].players;
-        const currentServer = players.some(player => player.username == credentials.username);
+        const currentServer = players.some(player => player.username == name);
         const cICIS = Object.values(lobbyData).every(game => !game.players.some(player => player.username == credentials.username))
         if (cICIS) {
             currentPlayers = [];
