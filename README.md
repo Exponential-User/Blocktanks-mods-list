@@ -16,9 +16,10 @@ You can suggest something in the issues tab! :)
 
 ---
 ## Join-Alert
+#### This script will go after the player-match leak is fixed
 This outputs to the chat ( e.g.: [USERNAME] has joined/Left ).
 
-This does not support guests yet.
+This does not support guests.
 
 The joining/leaving message only shows to you.
 
