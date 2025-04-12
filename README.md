@@ -12,7 +12,7 @@ The UBTM mod does not require anything, This goes for visuals, If you like the c
 
 UBTM gives you shadows, gradients, some animated buttons/weapons, and text decorations.
 
-You can suggest something in the issues tab! :)
+You can suggest something in the issues or discussions tab! :)
 
 ---
 ## Join-Alert
