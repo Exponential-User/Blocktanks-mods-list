@@ -110,7 +110,6 @@ async function delay() {
 }
 
 function setShadowColorTab() {
-    console.debug("starting to set tab shadow color...");
     const missionTab = document.getElementById('accountTabs-missions');
     const eventsTab = document.getElementById('accountTabs-events');
     const missionTabStyle = missionTab.style;
@@ -119,6 +118,10 @@ function setShadowColorTab() {
     const x2 = bC.replace(/[^\d,]/g, '').split(',');
     const x3 = eTSbC.replace(/[^\d,]/g, '').split(',');
     
+    console.debug("Events Tab Background Color: " + eTSbC);
+    console.debug("Missions Tab Background Color: " + bC);
+    console.debug("Events Tab RGB: " + x3);
+    console.debug("Missions Tab RGB: " + x2);
     // setting R, G, and B values
     for (let i = 0; i < x2.length; i++) {if (i == 0) {var r = x2[i];} else if (i == 1) {var g = x2[i];} else if (i == 2) {var b = x2[i];}}
     for (let i = 0; i < x3.length; i++) {if (i == 0) {var r3 = x3[i];} else if (i == 1) {var g3 = x3[i];} else if (i == 2) {var b3 = x3[i];}}
