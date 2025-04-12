@@ -19,11 +19,11 @@ You can suggest something in the issues tab! :)
 #### This script will not work after the player-match leak is fixed, Unless I find a way which I have and currently coding it.
 This outputs to the chat ( e.g.: [USERNAME] has joined/Left ).
 
-This does not support guests.
+This does not support guests. (Soon)
 
 The joining/leaving message only shows to you.
 
-This has a respones time like around 3-5 seconds (Tested this in a minute, I don't know how accurate it is).
+This has a respones time like around 3-5 seconds (Tested this in a minute, I don't know how accurate it is, Will change hopefully once updated).
 If you want to change the delay that checks for new players, change this:
 ```js
 const delay1 = 750; // At line 4
