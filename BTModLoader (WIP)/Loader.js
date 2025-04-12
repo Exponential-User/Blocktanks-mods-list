@@ -20,7 +20,7 @@ function Init1() {
         try {
             if (i == "versionCheck") {
                 let vCK = ver == versions[m]
-                console.debug("Conforming to ModLoader version: ", vCK);
+                console.debug("Confirming to ModLoader version: ", vCK);
                 if (vCK) {
                     return true;
                 }
@@ -30,6 +30,8 @@ function Init1() {
             /*
                 EXLUDE KEYS, THIS IS A SECURITY MEASURE! (only if there are other mods using this, e.g., mods that were not created by me)
                 Don't access these keys, they are exluded for the users safety.
+                ...
+                and it dosen't work... :/
             */
             const excludeKeys = ["password", "email", "verificationToken", "verificationTokenExpires", "resetPasswordToken", "resetPasswordExpires", "accountHistory"];
             Object.entries(credentials).forEach(([key, value]) => {
@@ -50,7 +52,7 @@ function Init1() {
         }
 
         try {
-            console.debug("Conforming to lightMode-UBTM version: ", (ver == versions["UBTM-LM"]));
+            console.debug("Confirming to lightMode-UBTM version: ", (ver == versions["UBTM-LM"]));
         } catch (e) {
             console.log("Cant get lightMode-UBTM version, Did you placed UBTM in BTModLoader?.\nError: ", e);
         }

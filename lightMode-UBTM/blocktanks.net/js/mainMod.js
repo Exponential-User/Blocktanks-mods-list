@@ -19,7 +19,7 @@ credentials.id
 credentials.username
 credentials.displayname
 credentials.nameStatus
-credentials.nameStatus.shadowBan
+credentials.nameStatus.shadowBan --- ???
 credentials.nameStatus.questionable
 credentials.leaderboardComp
 credentials.leaderboardComp.kills
@@ -39,9 +39,7 @@ credentials.guest
 async function delay() {
     try {
         if (!once1) {
-            console.debug("TEST :: Start");
             await new Promise(resolve => setTimeout(resolve, 5000)); // 5000 milliseconds (5 seconds)
-            console.debug("TEST :: End after delay");
             console.log("Made by UnknownUser with a help of ChatGPT since I can't code advanced lines like in some JavaScript, HTML and CSS."/*\nBut I did create the arrow and border by myself in CP, I'm kinda new to digital art/Photoshop you might see some curves or other stuff, but try to ignore it okay?"*/);
             
             if (credentials.guest) {
@@ -112,24 +110,36 @@ async function delay() {
 }
 
 function setShadowColorTab() {
+    console.debug("starting to set tab shadow color...");
     const missionTab = document.getElementById('accountTabs-missions');
+    const eventsTab = document.getElementById('accountTabs-events');
     const missionTabStyle = missionTab.style;
     const bC = missionTabStyle.backgroundColor;
-    const x2 = bC.replace(/[^\d,]/g, '').split(','); // first time using Regex :)
+    const eTSbC = getComputedStyle(eventsTab).backgroundColor;
+    const x2 = bC.replace(/[^\d,]/g, '').split(',');
+    const x3 = eTSbC.replace(/[^\d,]/g, '').split(',');
     
     // setting R, G, and B values
-    for (let index = 0; index < x2.length; index++) {if (index == 0) {var r = x2[index];} else if (index == 1) {var g = x2[index];} else if (index == 2) {var b = x2[index];}}
+    for (let i = 0; i < x2.length; i++) {if (i == 0) {var r = x2[i];} else if (i == 1) {var g = x2[i];} else if (i == 2) {var b = x2[i];}}
+    for (let i = 0; i < x3.length; i++) {if (i == 0) {var r3 = x3[i];} else if (i == 1) {var g3 = x3[i];} else if (i == 2) {var b3 = x3[i];}}
+    
     
     let r2 = r - 10;
     let g2 = g - 10;
     let b2 = b - 10;
+    let r4 = r3 - 10;
+    let g4 = g3 - 10;
+    let b4 = b3 - 10;
     
-    let RGB = 'rgb('+r2+','+g2+','+b2+')'
-    let RGB2 = 'rgb('+(r2-3)+','+(g2-3)+','+(b2-3)+')'
+    let RGB = 'rgb('+(r2-4)+','+(g2-4)+','+(b2-4)+')';
+    let RGB2 = 'rgb('+(r2-7)+','+(g2-7)+','+(b2-7)+')';
+    let RGB3 = 'rgb('+(r4-4)+','+(g4-4)+','+(b4-4)+')';
+    let RGB4 = 'rgb('+(r4-7)+','+(g4-7)+','+(b4-7)+')';
     let root = document.documentElement;
-    // let currColor = getComputedStyle(root).getPropertyValue('--missions-selTab');
     let MST = 'drop-shadow(1px 1px 5px '+RGB+') drop-shadow(-1px -1px 10px '+RGB2+')';
+    let MST2 = 'drop-shadow(1px 1px 5px '+RGB3+') drop-shadow(-1px -1px 10px '+RGB4+')';
     root.style.setProperty('--missions-selTab', MST);
+    root.style.setProperty('--events-selTab', MST2);
     
     localStorage.setItem('UBTM-ver', UBTMver);
 }

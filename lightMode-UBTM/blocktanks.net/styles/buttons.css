@@ -143,6 +143,10 @@ button:where(.link):hover {
     filter:var(--missions-selTab)
 }
 
+#accountTabs-events.selectedTab{
+    filter:var(--events-selTab);
+}
+
 /*.selectedTab:hover{
 
 }*/
