@@ -134,30 +134,9 @@ class KillFeed {
     
         // Log the details to the console
         try {
-            /*if (credentials.userName == 'unknownuser') {
-                if(credentials.userName = killer){
-                    console.log(`{Mod Creater} ${killer} Killed ${victim} with ${weapon}`);
-                } else {
-                    console.log(`${killer} Killed {Mod Creater} ${victim} with ${weapon}`);
-                }
-            } else if (credentials.userName == 'kevdude' || credentials.userName == 'cooldogyum' || credentials.userName == 'carson_23') {
-                if(credentials.userName = killer){
-                    console.log(`{Developer} ${killer} Killed ${victim} with ${weapon}`);
-                } else {
-                    console.log(`${killer} Killed {Developer} ${victim} with ${weapon}`);
-                }
-            } else if (credentials.userName == 'jasn' || credentials.userName == 'soy milk') {
-                if(credentials.userName = killer){
-                    console.log(`{CM} ${killer} Killed ${victim} with ${weapon}`);
-                } else {
-                    console.log(`${killer} Killed {CM} ${victim} with ${weapon}`);
-                }
-            } else {*/
-                console.log(`%c${killer} Killed ${victim} with ${weapon}`, 'font-weight: 800; font-size: 14px; color: #fff; font-style: passion one;');
-            //}
-        } catch (error) {
-            //console.log(`%c${killer} Killed ${victim} with ${weapon}`, 'font-weight: 800; font-size: 12px; color: #ccc;');
-            console.error(Error);
+            console.log(`%c${killer} Killed ${victim} with ${weapon}`, 'font-weight: 800; font-size: 14px; color: #fff; font-style: passion one;');
+        } catch (err) {
+            console.error(err);
         }
                         
         // Create removal timer

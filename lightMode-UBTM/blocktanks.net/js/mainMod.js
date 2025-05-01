@@ -35,7 +35,20 @@ credentials.guest
 
 */
 
-// Mod
+/*
+     -----------
+     --- MOD ---
+     -----------
+*/
+
+let bodyB, bodyBDark, bodyR, bodyGrey, titleTile, backgroundDark, backgroundDarko, background, backgroundo, bullet, bulletDark, bulletR, bulletB, bulletBDark, ctfFlagB, ctfFlagR, crown, crownA, bubbleR, bubbleB, cpBorder, arrow, arrowR, arrowB; // assests
+let UBTMver = '0.0.6'
+let modName = ' Unofficial Blocktanks Mod.';
+let modName0 = ' Unofficial Blocktanks Mod.';
+let once1 = false;
+let co1 = 0x000000;
+let co2 = 0x000000;
+
 async function delay() {
     try {
         if (!once1) {
@@ -102,6 +115,7 @@ async function delay() {
         }
         
         setShadowColorTab();
+        createThemeTab();
         
         console.log("Finished loading UBTM mod!");
     } catch (error) {
@@ -112,28 +126,19 @@ async function delay() {
 function setShadowColorTab() {
     const missionTab = document.getElementById('accountTabs-missions');
     const eventsTab = document.getElementById('accountTabs-events');
-    const missionTabStyle = missionTab.style;
-    const bC = missionTabStyle.backgroundColor;
+    const bC = missionTab.style.backgroundColor;
     const eTSbC = getComputedStyle(eventsTab).backgroundColor;
     const x2 = bC.replace(/[^\d,]/g, '').split(',');
     const x3 = eTSbC.replace(/[^\d,]/g, '').split(',');
     
     // setting R, G, and B values
     for (let i = 0; i < x2.length; i++) {if (i == 0) {var r = x2[i];} else if (i == 1) {var g = x2[i];} else if (i == 2) {var b = x2[i];}}
-    for (let i = 0; i < x3.length; i++) {if (i == 0) {var r3 = x3[i];} else if (i == 1) {var g3 = x3[i];} else if (i == 2) {var b3 = x3[i];}}
+    for (let i = 0; i < x3.length; i++) {if (i == 0) {var r2 = x3[i];} else if (i == 1) {var g2 = x3[i];} else if (i == 2) {var b2 = x3[i];}}
     
-    
-    let r2 = r - 10;
-    let g2 = g - 10;
-    let b2 = b - 10;
-    let r4 = r3 - 10;
-    let g4 = g3 - 10;
-    let b4 = b3 - 10;
-    
-    let RGB = 'rgb('+(r2-4)+','+(g2-4)+','+(b2-4)+')';
-    let RGB2 = 'rgb('+(r2-7)+','+(g2-7)+','+(b2-7)+')';
-    let RGB3 = 'rgb('+(r4-4)+','+(g4-4)+','+(b4-4)+')';
-    let RGB4 = 'rgb('+(r4-7)+','+(g4-7)+','+(b4-7)+')';
+    let RGB = 'rgb('+(r-14)+','+(g-14)+','+(b-14)+')';
+    let RGB2 = 'rgb('+(r-17)+','+(g-17)+','+(b-17)+')';
+    let RGB3 = 'rgb('+(r2-14)+','+(g2-14)+','+(b2-14)+')';
+    let RGB4 = 'rgb('+(r2-17)+','+(g2-17)+','+(b2-17)+')';
     let root = document.documentElement;
     let MST = 'drop-shadow(1px 1px 5px '+RGB+') drop-shadow(-1px -1px 10px '+RGB2+')';
     let MST2 = 'drop-shadow(1px 1px 5px '+RGB3+') drop-shadow(-1px -1px 10px '+RGB4+')';
@@ -141,4 +146,336 @@ function setShadowColorTab() {
     root.style.setProperty('--events-selTab', MST2);
     
     localStorage.setItem('UBTM-ver', UBTMver);
+}
+
+function createThemeTab() {
+    const accountTabs = document.querySelector("#accountTabs > tbody > tr");
+    const accountInfo = document.querySelector("#accountInfoContents");
+    const themeTab = document.createElement("td");
+    const themeInfo = document.createElement("div");
+    // const themePopUp = document.createElement("div");
+    themeTab.id = "accountTabs-themes";
+    themeTab.setAttribute('onclick','loadAccountTab(\'themes\')');
+    themeTab.setAttribute('class','unselectedTab');
+    themeTab.class = "unselectedTab";
+    themeTab.innerHTML = "Themes";
+    themeInfo.id = "accountInfo-themes";
+    themeInfo.style.display = "none";
+
+    themeInfo.innerHTML = `
+        <div class="accountInfoContent">
+            <p>Presets:</p>
+            <select id="themeSelect" onchange="theme(this.value)">
+                <option value="default">Default</option>
+                <option value="space">Space</option>
+                <option value="smile">Smiles</option>
+                <option value="custom">Custom</option>
+            </select>
+            <br></br>
+            <p>Custom:</p>
+            <label id="jsonLabel" for="jsonInput">Enter Theme JSON:</label>
+            <textarea id="jsonInput" name="jsonInput" placeholder="Enter JSON compatible theme..." style="height: 120px; width: 90%; display: none; padding: 10px; font-family: monospace; resize: vertical;"></textarea>
+        </div>`;
+
+    accountTabs.appendChild(themeTab);
+    accountInfo.appendChild(themeInfo);
+
+    document.getElementById("jsonInput").addEventListener("keydown", function(event) {
+        if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
+            theme(this.value); // Call your function
+        }
+    });
+    
+}
+
+function theme(text) {
+    const jsonInput = document.getElementById("jsonInput");
+    const jsonLabel = document.getElementById("jsonLabel");
+
+    if (text === "default") { // Brown
+        co1 = 0xbf9067;
+        co2 = 0x9e7149;
+        jsonInput.style.display = "none";
+        jsonLabel.style.display = "none";
+    } else if (text === "space") { // Black and grey
+        co1 = 0x000000;
+        co2 = 0x1f1f1f;
+        jsonInput.style.display = "none";
+        jsonLabel.style.display = "none";
+    } else if (text === "smile") { // not yet
+        co1 = 0xFFFF00;
+        co2 = 0xFF0000;
+        jsonInput.style.display = "none";
+        jsonLabel.style.display = "none";
+    } else if (text === "custom") { // Shows the JSON input field for custom themes
+        jsonInput.style.display = "block";
+        jsonLabel.style.display = "block";
+    } else {
+        try {
+            const themeObject = JSON.parse(text);
+
+            ({
+                co1,
+                co2,
+                bodyB,
+                bodyBDark,
+                bodyR,
+                bodyGrey,
+                titleTile,
+                backgroundDark,
+                backgroundDarko,
+                background,
+                backgroundo,
+                bullet,
+                bulletDark,
+                bulletR,
+                bulletB,
+                bulletBDark,
+                ctfFlagB,
+                ctfFlagR,
+                crown,
+                crownA,
+                bubbleR,
+                bubbleB,
+                cpBorder,
+                arrow,
+                arrowR,
+                arrowB
+            } = themeObject);
+
+            console.log("\n\nTheme variables successfully loaded.\n\nTheme JSON Object:\n", themeObject, "\n\nValues:\n", bodyB, bodyBDark, bodyR, bodyGrey, titleTile, backgroundDark, backgroundDarko, background, backgroundo, bullet, bulletDark, bulletR, bulletB, bulletBDark, ctfFlagB, ctfFlagR, crown, crownA, bubbleR, bubbleB, cpBorder, arrow, arrowR, arrowB, "\n\n");
+        } catch (error) {
+            console.error("Invalid JSON format:", error);
+            alert("Invalid JSON format. Please check your input.");
+        }
+    }
+}
+
+function corsFix(url) {
+    if (!url || (url ?? true)) return undefined;
+
+    const img = new Image();
+    img.crossOrigin = "anonymous"; // This allows CORS-enabled images to be used in canvas if needed
+    img.src = url + (/\?/.test(url) ? "&" : "?") + Date.now(); // Cache buster trick
+
+    return img; // The image will load asynchronously
+}
+
+
+/*
+     -----------------
+     --- OVERRIDES ---
+     -----------------
+*/
+
+// Overriding the default showAccountInfo function
+function loadAccountTab(id) {
+	var c = ["events", "missions", "xp", "stats", "replays", "themes"]; // Added "themes" to the list of tabs
+	for (var i = 0; i < c.length; i++) {
+		document.getElementById("accountInfo-" + c[i]).style.display = "none";
+		document.getElementById("accountTabs-" + c[i]).classList.remove("selectedTab");
+		document.getElementById("accountTabs-" + c[i]).classList.add("unselectedTab");
+	}
+	document.getElementById("accountInfo-" + id).style.display = "block";
+	document.getElementById("accountTabs-" + id).classList.add("selectedTab");
+	document.getElementById("accountTabs-" + id).classList.remove("unselectedTab");
+}
+
+// Overriding the default applyMapTint function
+function applyMapTint(sprite, colorEnergy, seed = undefined) {
+	const randomValue = (seed != undefined) ? seededRandom(seed) : Math.random();
+
+	let randomBaseColor = interpolateHexColors(co1 ?? 0xbf9067, co2 ?? 0x9e7149, randomValue);
+	if (colorEnergy > 0) { // Render blue tile
+		sprite.tint = interpolateHexColors(0x345CD2, randomBaseColor, colorEnergy);
+	}
+	else { // Render red tile
+		sprite.tint = interpolateHexColors(0xE72B2B, randomBaseColor, -colorEnergy);
+	}
+}
+
+// Overriding the default preload function, Added values to game.load.image for dynamic changes
+function preload() {
+	console.log("PRELOAD FUNCTION STARTED");
+	game.load.onLoadStart.add(function() { console.log("START LOAD - " + new Date().getTime()) });
+	game.load.onLoadComplete.addOnce(finishCreate, this);
+	game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+	game.load.image('body b', corsFix(bodyB) ?? "assets/Tank Body.png");
+	game.load.image('body_dark', corsFix(bodyBDark) ?? "assets/darkMode/Tank Body.png");
+	game.load.image("body r", corsFix(bodyR) ?? "assets/Tank Body Red.png");
+	game.load.image("body grey", corsFix(bodyGrey) ?? "assets/Tank Body Grey.png");
+
+
+	game.load.image('arm/0', 'assets/items/arm/0.png');
+	game.load.image('sticker/0', 'assets/items/sticker/0.png');
+	game.load.image('decal/0', 'assets/items/decal/0.png');
+
+	game.load.image("titleTile", corsFix(titleTile) ?? "assets/titleTile.png");
+	game.load.image("backgroundDark", corsFix(backgroundDark) ?? "assets/background dark.png");
+	game.load.image('backgroundDark_original', corsFix(backgroundDarko) ?? "assets/background dark_original.png");
+	game.load.image("background", corsFix(background) ?? "assets/background.png");
+	game.load.image('background_original', corsFix(backgroundo) ?? "assets/background_original.png");
+	game.time.advancedTiming = true;
+}
+
+// Overriding the default lazyLoadGameResources function, Added values to game.load.image for dynamic changes
+function lazyLoadGameResources() {
+	game.load.onLoadComplete.addOnce(function(){
+		console.log("Finished loading all resources");
+		FLAGS.RESOURCES_LOADED = true;
+		if(FLAGS.RESOURCE_LOAD_CALLBACK){
+			FLAGS.RESOURCE_LOAD_CALLBACK();
+		}
+	}, this);
+	game.load.onFileComplete.add(fileComplete, this);
+
+	game.load.image("joystickInside", "assets/joystickInside.png");
+	game.load.image("joystickOutside", "assets/joystickOutside.png");
+
+	for (var i = 0; i < 6; i++) {
+		game.load.image("explosion/0/n_dark/" + i, "assets/items/explosion/0/n/darkMode/" + i + ".png");
+		game.load.image("explosion/0/n/" + i, "assets/items/explosion/0/n/" + i + ".png");
+	}
+	for (var i = 0; i < 6; i++) {
+		game.load.image("explosion/0/r/" + i, "assets/items/explosion/0/r/" + i + ".png");
+	}
+	for (var i = 0; i < 6; i++) {
+		game.load.image("explosion/0/b/" + i, "assets/items/explosion/0/b/" + i + ".png");
+	}
+
+
+	for (var i = 1; i <= 4; i++) {
+		game.load.image("smoke" + i, "assets/smoke/" + i + ".png");
+	}
+	for (var i = 1; i <= 4; i++) {
+		game.load.image("lightBurst" + i, "assets/lightBurst/" + i + ".png");
+	}
+	//Game Components
+	game.load.image('bullet', corsFix(bullet) ?? "assets/bullet.png");
+	game.load.image('bullet_dark', corsFix(bulletDark) ?? "assets/darkMode/bullet.png");
+	game.load.image('bullet r', corsFix(bulletR) ?? "assets/bullet red.png");
+	game.load.image("bullet b", corsFix(bulletB) ?? "assets/bullet blue.png");
+	game.load.image("bullet b_dark", corsFix(bulletBDark) ?? "assets/darkMode/bullet blue.png");
+
+	game.load.image("bomb r_spooky", "assets/spooky/bomb r.png");
+	game.load.image("bomb b_spooky", "assets/spooky/bomb b.png");
+	game.load.image("bomb_spooky", "assets/spooky/bomb.png");
+	game.load.image("skull_dark", "assets/spooky/skull.png");
+
+	game.load.image("fullscreen", "assets/Fullscreen.png");
+
+	// Map Tiles
+	game.load.image("mapTile", "assets/mapTile.png");
+	game.load.image("mapTileSet", "assets/mapTileSet.png");
+	game.load.image("mapTile Blue", "assets/mapTile Blue.png");
+	game.load.image("mapTile Red", "assets/mapTile Red.png");
+	game.load.image("mapTile Blue Pale", "assets/mapTile Blue Pale.png");
+	game.load.image("mapTile Red Pale", "assets/mapTile Red Pale.png");
+	game.load.image("bulletOnlyTile", "assets/bulletOnlyTile.png");
+	game.load.image("ice", "assets/ice.png");
+	game.load.spritesheet("iceSparkles", "assets/iceSparkles.png", 25, 25);
+	game.load.image("bounce", "assets/bounce.png");
+
+	var mapSizes = [10, 11, 15, 20, 24, 25, 30, 31, 32, 33, 35, 40, 50, 51, 55];
+	for (var i = 0; i < mapSizes.length; i++) {
+		game.load.spritesheet('mapTile' + mapSizes[i], 'assets/tileColors' + mapSizes[i] + '.png', 1, 1, mapSizes[i]);
+	}
+
+	game.load.spritesheet("mapTile40_40", "assets/tileColors40_40.png", 1, 1);
+
+	game.load.spritesheet("mapTile48_48", "assets/tileColors48_48.png", 1, 1);
+
+	game.load.spritesheet("mapTile15_15", "assets/tileColors15_15.png", 1, 1);
+
+	//Powerups
+
+	for (var i = 0; i < weaponsList.length; i++) {
+		if (i != 0) {
+			game.load.image(weaponsList[i] + "_dark", "assets/powerups/darkMode/" + weaponsList[i] + ".png");
+			game.load.image(weaponsList[i], "assets/powerups/" + weaponsList[i] + ".png");
+		}
+	}
+
+
+
+
+	var projectiles = ["rocket", "flashbang", "grenade", "volcano", "bottlebomb"];
+	for (var i = 0; i < projectiles.length; i++) {
+		var p = projectiles[i];
+		game.load.image(p + 'Bullet', "assets/" + p + ".png");
+		game.load.image(p + 'Bullet_dark', "assets/darkMode/" + p + ".png");
+		game.load.image(p + 'Bullet r', "assets/" + p + " r.png");
+		game.load.image(p + "Bullet b", "assets/" + p + " b.png")
+		game.load.image(p + "Bullet b_dark", "assets/darkMode/" + p + " b.png")
+	}
+
+	game.load.image("sniperAim", "assets/sniper/aim.png");
+
+	game.load.spritesheet("sniperShoot_r", "assets/sniper/shoot_r.png", 20, 20, 5);
+	game.load.spritesheet("sniperShoot_b", "assets/sniper/shoot_b.png", 20, 20, 5);
+
+	game.load.image("crown", corsFix(crown) ?? "assets/crown.png");
+
+	game.load.image("crown arrow", corsFix(crownA) ?? "assets/crown arrow.png");
+
+	game.load.image("bubble r_0", corsFix(bubbleR) ?? "assets/bubbles/r.png");
+	game.load.image("bubble b_0", corsFix(bubbleB) ?? "assets/bubbles/b.png");
+
+
+	game.load.image("cp_border", corsFix(cpBorder) ?? "assets/mode/cp/border.png");
+
+	game.load.image("cp_arrow", corsFix(arrow) ?? "assets/mode/cp/arrow.png");
+
+	game.load.image("cp_arrow r", corsFix(arrowR) ?? "assets/mode/cp/arrow r.png");
+
+	game.load.image("cp_arrow b", corsFix(arrowB) ?? "assets/mode/cp/arrow b.png");
+
+	game.load.image('ctf_flag b', corsFix(ctfFlagB) ?? "/assets/mode/ctf/blueFlag_tile.png");
+	game.load.image('ctf_flag r', corsFix(ctfFlagR) ?? "/assets/mode/ctf/redFlag_tile.png");
+
+	game.load.image('ctf_arrow', corsFix(arrow) ?? "/assets/mode/cp/arrow.png");
+	game.load.image('ctf_arrow b', corsFix(arrowB) ?? "/assets/mode/cp/arrow b.png");
+	game.load.image('ctf_arrow r', corsFix(arrowR) ?? "/assets/mode/cp/arrow r.png");
+
+	game.load.image('ctf_highlight b', '/assets/Tank Body.png');
+	game.load.image('ctf_highlight r', '/assets/Tank Body Red.png');
+
+	if (CHRISTMAS_TIME) {
+		game.load.image("christmas/presents/b/0", "assets/christmas/presents/b/0.png");
+		game.load.image("christmas/presents/r/0", "assets/christmas/presents/r/0.png");
+		game.load.image("c_lights", "assets/christmas/lights.png");
+		for (var i = 0; i <= 5; i++) {
+			game.load.image("snowflake_" + i, "assets/christmas/snow/" + i + ".png");
+		}
+	}
+	if (window.missions && !FLAGS.collectablesLoaded) {
+		FLAGS.collectablesLoaded = true;
+		console.log("LOADING COLLECTABLES FROM PRELOAD FUNCTION");
+		loadCollectables();
+	}
+
+
+	var soundKeys = "bullet1 bullet2 bullet3 explode explodeShort weapon sad sad2 beep beep2 zap flash happy jingle jingle2 spawn slide".split(" ");
+	for (var i = 0; i < soundKeys.length; i++) {
+		var key = soundKeys[i];
+		game.load.audio(key, "sounds/" + key + ".mp3");
+		SOUNDS[key] = new Phaser.Sound(game, key, 1);
+	}
+	SOUNDS.weapon.volume = 0.35;
+
+	SOUNDS.streaks = {
+		3: ["jingle_streak3", "Triple Kill!"],
+		5: ["jingle_carnage", "Total Carnage!!"],
+		10: ["jingle_unstoppable", "Unstoppable!!!"],
+		15: ["jingle_insanity", "Insanity!!!!"],
+		20: ["jingle_stop", "Maybe you should stop now..."],
+		25: ["jingle_takeabreak", "Seriously! Take a break or something."]
+	};
+
+	for (var i in SOUNDS.streaks) {
+		game.load.audio(SOUNDS.streaks[i][0], "sounds/jingles/" + SOUNDS.streaks[i][0] + ".mp3");
+		SOUNDS[SOUNDS.streaks[i][0]] = new Phaser.Sound(game, SOUNDS.streaks[i][0], .25);
+	}
+	game.load.start();
 }
