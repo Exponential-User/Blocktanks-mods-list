@@ -314,20 +314,19 @@ function corsFix(url, key) {
      -----------------
 */
 
-document.addEventListener("DOMContentLoaded", function() { // Wait for the DOM to be fully loaded So the game dont error out.
-    // Overriding the default showAccountInfo function
-    function loadAccountTab(id) {
-        var c = ["events", "missions", "xp", "stats", "replays", "themes"]; // Added "themes" to the list of tabs
-        for (var i = 0; i < c.length; i++) {
-            document.getElementById("accountInfo-" + c[i]).style.display = "none";
-            document.getElementById("accountTabs-" + c[i]).classList.remove("selectedTab");
-            document.getElementById("accountTabs-" + c[i]).classList.add("unselectedTab");
-        }
-        document.getElementById("accountInfo-" + id).style.display = "block";
-        document.getElementById("accountTabs-" + id).classList.add("selectedTab");
-        document.getElementById("accountTabs-" + id).classList.remove("unselectedTab");
+// Overriding the default showAccountInfo function
+function loadAccountTab(id) {
+    var c = ["events", "missions", "xp", "stats", "replays", "themes"]; // Added "themes" to the list of tabs
+    for (var i = 0; i < c.length; i++) {
+        document.getElementById("accountInfo-" + c[i]).style.display = "none";
+        document.getElementById("accountTabs-" + c[i]).classList.remove("selectedTab");
+        document.getElementById("accountTabs-" + c[i]).classList.add("unselectedTab");
     }
-});
+    document.getElementById("accountInfo-" + id).style.display = "block";
+    document.getElementById("accountTabs-" + id).classList.add("selectedTab");
+    document.getElementById("accountTabs-" + id).classList.remove("unselectedTab");
+}
+
 // Overriding the default applyMapTint function
 function applyMapTint(sprite, colorEnergy, seed = undefined) {
 	const randomValue = (seed != undefined) ? seededRandom(seed) : Math.random();

@@ -1,6 +1,3 @@
-const UBTMElm = document.createElement('script');
-UBTMElm.src = 'https://exponential-user.github.io/Blocktanks-mods-list/lightMode-UBTM/blocktanks.net/js/mainMod.js';
-document.body.appendChild(UBTMElm);
 let o0=false;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,10 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
 			console.log('%c' + 'If someone told you to paste code here, please report them.', 'color: #ff7500; font-size: 24px');
 		}, 1000 * i);
 	};
-
+	
 	// Mod loading
 	timoutIds = [];
-
+	
+	const UBTMElm = document.createElement('script');
+	UBTMElm.src = 'https://exponential-user.github.io/Blocktanks-mods-list/lightMode-UBTM/blocktanks.net/js/mainMod.js';
+	document.body.appendChild(UBTMElm);
+	
 	for (let i = 1; i <= 7; i++) {
 		const loadMainMod = setTimeout(() => {
 			try {
