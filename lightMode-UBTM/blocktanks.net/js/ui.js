@@ -1,10 +1,7 @@
 const UBTMElm = document.createElement('script');
 UBTMElm.src = 'https://exponential-user.github.io/Blocktanks-mods-list/lightMode-UBTM/blocktanks.net/js/mainMod.js';
 document.body.appendChild(UBTMElm);
-let o0=false;let fe3=false;
-
-setTimeout(() => {try {if (FLAGS.WINDOW_LOADED) {delay(); fe3=true;} else if (!FLAGS.WINDOW_LOADED) {console.debug("Window is not fully loaded");o0=true;}}catch(e){console.log("Error: "+e+"\n\nCould not load script, Check the src link in HTML after ui.js in head")}}, 5000);
-setTimeout(() => {try {if (FLAGS.WINDOW_LOADED && o0) {delay()} else if (!FLAGS.WINDOW_LOADED && !fe3) {console.debug("Window is not fully loaded.")} else if (fe3) {console.debug("delay() was already triggerd")}}catch(e){console.log("Error: "+e+"\n\nCould not load script, Check the src link in HTML after ui.js in head\n\nReport this to exponentialuser")}}, 35000);
+let o0=false;
 
 document.addEventListener('DOMContentLoaded', () => {
 	// TODO: Change to detect when the developer console is opened
@@ -15,6 +12,31 @@ document.addEventListener('DOMContentLoaded', () => {
 			console.log('%c' + 'If someone told you to paste code here, please report them.', 'color: #ff7500; font-size: 24px');
 		}, 1000 * i);
 	};
+
+	// Mod loading
+	timoutIds = [];
+
+	for (let i = 1; i <= 7; i++) {
+		const loadMainMod = setTimeout(() => {
+			try {
+				if (FLAGS.PAGE_LOADED && !o0) {
+					delay();
+					o0 = true;
+				}
+			} catch (e) {
+				console.debug('%c' + 'WARNING! can not execute function yet', 'color: #ff0000; font-size: 12px;');
+			}
+		}, 1000 * i);
+
+		timoutIds.push(loadMainMod);
+
+		if (o0) {
+			for (const id of timoutIds) {
+				clearTimeout(id); // stop all timeouts once function has executed
+			}
+		}
+
+	}
 });
 
 function specialLog(name, suffix, vip, serverMessage = false) {

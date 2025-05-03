@@ -172,8 +172,7 @@ function createThemeTab() {
                 <option value="custom">Custom</option>
             </select>
             <br></br>
-            <p>Custom:</p>
-            <label id="jsonLabel" for="jsonInput">Enter Theme JSON:</label>
+            <p id="jsonLabel">Custom:</p>
             <textarea id="jsonInput" name="jsonInput" placeholder="Enter JSON compatible theme..." style="height: 120px; width: 90%; display: none; padding: 10px; font-family: monospace; resize: vertical;"></textarea>
         </div>`;
 
@@ -194,18 +193,18 @@ function theme(text) {
     const jsonLabel = document.getElementById("jsonLabel");
 
     if (text === "default") { // Brown
-        co1 = 0xbf9067;
-        co2 = 0x9e7149;
+        co1 = 0xBF9067;
+        co2 = 0x9E7149;
         jsonInput.style.display = "none";
         jsonLabel.style.display = "none";
     } else if (text === "space") { // Black and grey
         co1 = 0x000000;
-        co2 = 0x1f1f1f;
+        co2 = 0x1F1F1F;
         jsonInput.style.display = "none";
         jsonLabel.style.display = "none";
     } else if (text === "smile") { // not yet
-        co1 = 0xFFFF00;
-        co2 = 0xFF0000;
+        co1 = 0xF700FF;
+        co2 = 0xFFEA00;
         jsonInput.style.display = "none";
         jsonLabel.style.display = "none";
     } else if (text === "custom") {
