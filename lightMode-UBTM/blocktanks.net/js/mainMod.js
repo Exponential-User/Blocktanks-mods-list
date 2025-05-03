@@ -279,34 +279,64 @@ function theme(text) {
 function corsFix(url, key) {
     if (!url) return Promise.reject("No URL provided");
 
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.crossOrigin = "anonymous"; // Enables CORS-safe usage
-        img.onload = () => {
-            // Remove existing cached image if present
-            delete game.cache._images[key];
-            delete PIXI.BaseTextureCache[key];
-            delete PIXI.TextureCache[key];
+    return fetch(url, { mode: "cors" })
+        .then(response => {
+            if (!response.ok) throw new Error("Fetch failed: " + response.statusText);
+            return response.blob();
+        })
+        .then(blob => {
+            const blobUrl = URL.createObjectURL(blob);
+            const img = new Image();
+            img.crossOrigin = "anonymous";
 
-            // Add new image to the Phaser image cache
-            game.cache._images[key] = {
-                data: img,
-                url: img.src,
-                type: 'image',
-                key: key
-            };
+            return new Promise((resolve, reject) => {
+                img.onload = () => {
+                    URL.revokeObjectURL(blobUrl);
 
-            // Update sprite(s) using this key
-            const sprite = game.world.children.find(c => c.key === key);
-            if (sprite) sprite.loadTexture(key);
+                    // Remove previous cache
+                    const cacheImage = game.cache._cache?.image;
+                    const cacheMap = game.cache._cacheMap?.[2];
 
-            resolve(img);
-        };
+                    if (cacheImage && cacheImage[key]) delete cacheImage[key];
+                    if (cacheMap && cacheMap[key]) delete cacheMap[key];
 
-        img.onerror = () => reject("Image failed to load: " + url);
-        img.src = url + (/\?/.test(url) ? "&" : "?") + Date.now(); // Cache-busting
-    });
+                    // Add new image to cache
+                    if (cacheImage) {
+                        cacheImage[key] = {
+                            data: img,
+                            url: img.src,
+                            type: 'image',
+                            key: key
+                        };
+                    }
+
+                    if (cacheMap) {
+                        cacheMap[key] = {
+                            key: key,
+                            url: img.src,
+                            data: img,
+                            base: new PIXI.BaseTexture(img),
+                            frame: new Phaser.Rectangle(0, 0, img.width, img.height)
+                        };
+                    }
+
+                    // Force-refresh any sprite using this key
+                    game.world.children.forEach(child => {
+                        if (child.key === key && typeof child.loadTexture === "function") {
+                            child.loadTexture(key);
+                        }
+                    });
+
+                    resolve(img);
+                };
+
+                img.onerror = () => reject("Image load error for blob URL");
+                img.src = blobUrl;
+            });
+        })
+        .catch(err => Promise.reject("Failed to fetch image: " + err.message));
 }
+
 
 /*
      -----------------
