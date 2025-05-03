@@ -314,8 +314,8 @@ function corsFix(url, key) {
      -----------------
 */
 
-// Overriding the default showAccountInfo function
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() { // Wait for the DOM to be fully loaded So the game dont error out.
+    // Overriding the default showAccountInfo function
     function loadAccountTab(id) {
         var c = ["events", "missions", "xp", "stats", "replays", "themes"]; // Added "themes" to the list of tabs
         for (var i = 0; i < c.length; i++) {
