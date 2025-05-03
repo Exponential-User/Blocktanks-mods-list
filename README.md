@@ -49,10 +49,13 @@ includes custom JSON format for replacing blocktanks assests (No specific order)
 In order to access this you must select custom on the drop menu in the `Themes` tab, the drop menu also contains space and smiles which only puts color/tint on the map instead of the brown.
 
 co1 and co2 are for map coloring/tinting
-o = original (A bit more saturated, like a bit yellowish. Or just the classic)
-B = Blue
-R = Red
-cp = Payload
+> o = original (A bit more saturated, like a bit yellowish. Or just the classic)
+
+> B = Blue
+
+> R = Red
+
+> cp = Payload
 
 The Arrows are the Red, Blue, and grey arrows that you see,
 The background is just the grid,
