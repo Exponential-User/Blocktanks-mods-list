@@ -318,9 +318,13 @@ function corsFix(url, key) {
 function loadAccountTab(id) {
     var c = ["events", "missions", "xp", "stats", "replays", "themes"]; // Added "themes" to the list of tabs
     for (var i = 0; i < c.length; i++) {
-        document.getElementById("accountInfo-" + c[i]).style.display = "none";
-        document.getElementById("accountTabs-" + c[i]).classList.remove("selectedTab");
-        document.getElementById("accountTabs-" + c[i]).classList.add("unselectedTab");
+        try {
+            document.getElementById("accountInfo-" + c[i]).style.display = "none";
+            document.getElementById("accountTabs-" + c[i]).classList.remove("selectedTab");
+            document.getElementById("accountTabs-" + c[i]).classList.add("unselectedTab");
+        } catch (e) {
+            console.debug("Error hiding tab " + c[i] + ": " + e.message);
+        }
     }
     document.getElementById("accountInfo-" + id).style.display = "block";
     document.getElementById("accountTabs-" + id).classList.add("selectedTab");
