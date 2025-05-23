@@ -1,42 +1,3 @@
-/* 
-
-Roles:
-
-credentials.roles
-credentials.roles.communityManager
-credentials.roles.esports
-credentials.roles.moderator
-credentials.roles.superModHelper
-credentials.roles.developer
-
-Theres probably more roles, but these are the ones I found.
-
------------------------------------
-
-used creds:
-
-credentials.roles
-credentials.verified
-credentials.id
-credentials.username
-credentials.displayname
-credentials.nameStatus
-credentials.nameStatus.shadowBan --- ???
-credentials.nameStatus.questionable
-credentials.leaderboardComp
-credentials.leaderboardComp.kills
-credentials.leaderboardComp.deaths
-credentials.leaderboardComp.bullets
-credentials.leaderboardComp.kd
-credentials.xpInfo
-credentials.xpInfo.xp
-credentials.joinDate
-credentials.guest
-
-*** MORE ADDED SOON ***
-
-*/
-
 /*
      -----------
      --- MOD ---
@@ -44,109 +5,18 @@ credentials.guest
 */
 
 let bodyB = "assets/Tank Body.png", bodyBDark = "assets/darkMode/Tank Body.png", bodyR = "assets/Tank Body Red.png", bodyGrey = "assets/Tank Body Grey.png", titleTile = "assets/titleTile.png", backgroundDark = "assets/background dark.png", backgroundDarko = "assets/background dark_original.png", background = "assets/background.png", backgroundo = "assets/background_original.png", bullet = "assets/bullet.png", bulletDark = "assets/darkMode/bullet.png", bulletR = "assets/bullet red.png", bulletB = "assets/bullet blue.png", bulletBDark = "assets/darkMode/bullet blue.png", ctfFlagB = "assets/mode/ctf/blueFlag_tile.png", ctfFlagR = "assets/mode/ctf/redFlag_tile.png", crown = "assets/crown.png", crownA = "assets/crown arrow.png", bubbleR = "assets/bubbles/r.png", bubbleB = "assets/bubbles/b.png", cpBorder = "assets/mode/cp/border.png", arrow = "assets/mode/cp/arrow.png", arrowR = "assets/mode/cp/arrow r.png", arrowB = "assets/mode/cp/arrow b.png", ctfArrow = "assets/mode/cp/arrow.png", ctfArrowR = "assets/mode/cp/arrow r.png", ctfArrowB = "assets/mode/cp/arrow b.png"; // assets... on one line! >:)
-let UBTMver = '0.0.6'
-let modName = ' Unofficial Blocktanks Mod.';
-let modName0 = ' Unofficial Blocktanks Mod.';
-let once1 = false;
-let co1, co2;
+let once12 = false;
+let co1 = 0xBF9067, co2 = 0x9E7149;
 
-async function delay() {
+async function delay12() {
     try {
-        if (!once1) {
-            await new Promise(resolve => setTimeout(resolve, 5000)); // 5000 milliseconds (5 seconds)
-            console.log("Made by UnknownUser with a help of ChatGPT since I can't code advanced lines like in some JavaScript, HTML and CSS."/*\nBut I did create the arrow and border by myself in CP, I'm kinda new to digital art/Photoshop you might see some curves or other stuff, but try to ignore it okay?"*/);
-            
-            if (credentials.guest) {
-                console.log('%cVERSION ' + UBTMver + ' || Welcome ' + credentials.username + ' to the' + modName0, 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                console.log('%cYou\'re logged in as a guest, Some of the UBTM features are unavailable','font-size:12px; color: #f00; font-weigth: bold;')
-            } else if (credentials?.username == 'unknownuser') {
-                console.log('%cVERSION ' + UBTMver +' || Welcome [Blocktanks Mod Creater] UnknownUser to the' + modName, 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-            } else if (credentials?.roles?.developer) {
-                if (credentials?.vip) {
-                    console.log('%cVERSION ' + UBTMver + ' || Welcome [VIP] [Developer]' + credentials.displayName + ' to' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                } else if (!credentials?.vip) {
-                    console.log('%cVERSION ' + UBTMver +' || Welcome [Developer] ' + credentials.displayName + ' to' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                } else if (credentials?.username == 'kevdude') {
-                    console.log('%cVERSION ' + UBTMver + ' || Welcome [Owner] KevDude to the' + modName + 'Lets hope you like this mod! :)', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                } else {console.log("???")}
-            } else if (credentials?.roles?.communityManager) {
-                if (credentials?.vip) {
-                    console.log('%cVERSION ' + UBTMver + ' || Welcome [VIP] [community Manager]' + credentials.displayName + ' to' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                } else {
-                    console.log('%cVERSION ' + UBTMver + ' || Welcome [Community Manager] ' + credentials.displayName + ' to' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                }
-            } else if (credentials?.roles?.moderator) {
-                if (credentials?.vip) {
-                    console.log('%cVERSION ' + UBTMver + ' || Welcome [VIP] [In-game Mods] ' + credentials.displayName + ' to the' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                } else {
-                    console.log('%cVERSION ' + UBTMver + ' || Welcome [In-game Mods] ' + credentials.displayName + ' to the' + modName + 'I hope you like my mod!', 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                }
-            } else if (credentials?.vip) {
-                console.log('%cVERSION ' + UBTMver + ' || Welcome [VIP] ' + credentials.displayName + ' to' + modName0, 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-            } else {
-                if (credentials?.nameStatus?.shadowBan /* Deprecated? */ || credentials?.nameStatus?.questionable) {
-                    console.log('%cQuestionable User detected, This mod may not work Based on you\'re account Status.', 'font-size: 18px; color: #f00; font-weight: bold;');
-                } else {
-                    console.log('%cVERSION ' + UBTMver + ' || Welcome ' + credentials.displayName + ' to' + modName0, 'font-size: 20px; color: #9d00ff; font-weight: bold;');
-                }
-            }
-            
-            console.warn('%c:: If you see another mod that looks like this and not by me, DO NOT DOWNLOAD/INSERT, It might be something Bad.', 'font-size: 18px; color: #fd3535; font-weight: bold;');
-            
-            if (credentials?.nameStatus?.shadowBan /* Deprecated? */ || credentials?.nameStatus?.questionable) {
-                console.log('%cUser is Shadow Banned', 'font-size: 16px; color: #f00; font-weight: bold;')
-            } else {
-                console.log('%cUser is not Shadow Banned', 'font-size: 16px; color: #3f0; font-weight: bold;')
-            }
-            
-            console.log('%cif the game is broken, refresh, If that doesnt work show me the errors/warns, Then I\'ll try and see if i can fix it.', 'font-size: 15px; color: darkgrey; font-weight: bold;');
-            
-            if (!credentials.guest) {
-                console.log('%cTotal Kills: ' + credentials.leaderboardComp.kills, 'font-size: 14px; color: #f00; font-weight: bold;');
-                console.log('%cTotal Deaths: ' + credentials.leaderboardComp.deaths, 'font-size: 14px; color: #ff479c; font-weight: bold;');
-                console.log('%cTotal bullets shot: ' + credentials.leaderboardComp.bullets, 'font-size: 14px; color: grey; font-weight: bold;');
-                console.log('%cJoined: ' + readableTimeStamp(credentials.joinDate), 'font-size: 14px; color: darkgreen; font-weight: bold;');
-                console.log('%cTotal XP: ' + credentials.xpInfo.xp + ', If Floored: ' + Math.floor(credentials.xpInfo.xp), 'font-size: 14px; color: green; font-weight: bold;');
-                console.log('%cTotal KD: ' + credentials.leaderboardComp.kd + ', If rounded: ' + Math.round(credentials.leaderboardComp.kd * 100) / 100, 'font-size: 14px; color: black; font-weight: bold;');
-            } else {
-                console.log('%cCan not get User stats, Logged in as a Guest', 'font-size: 15px; color: #f00; font-weight: bold;');
-            }
-
-            once1 = true;
+        if (!once12) {
+            console.log('%c' + ' Loading Theme tab... ', 'color: #6900af; font-size: 15px; background-color: #000; font-weight: bold; padding: 5px; border-radius: 5px;');
+            createThemeTab();
         }
-        
-        setShadowColorTab();
-        createThemeTab();
-        
-        console.log("Finished loading UBTM mod!");
     } catch (error) {
         console.error("Error:", error);
     }
-}
-
-function setShadowColorTab() {
-    const missionTab = document.getElementById('accountTabs-missions');
-    const eventsTab = document.getElementById('accountTabs-events');
-    const bC = missionTab.style.backgroundColor;
-    const eTSbC = getComputedStyle(eventsTab).backgroundColor;
-    const x2 = bC.replace(/[^\d,]/g, '').split(',');
-    const x3 = eTSbC.replace(/[^\d,]/g, '').split(',');
-    
-    // setting R, G, and B values
-    for (let i = 0; i < x2.length; i++) {if (i == 0) {var r = x2[i];} else if (i == 1) {var g = x2[i];} else if (i == 2) {var b = x2[i];}}
-    for (let i = 0; i < x3.length; i++) {if (i == 0) {var r2 = x3[i];} else if (i == 1) {var g2 = x3[i];} else if (i == 2) {var b2 = x3[i];}}
-    
-    let RGB = 'rgb('+(r-14)+','+(g-14)+','+(b-14)+')';
-    let RGB2 = 'rgb('+(r-17)+','+(g-17)+','+(b-17)+')';
-    let RGB3 = 'rgb('+(r2-14)+','+(g2-14)+','+(b2-14)+')';
-    let RGB4 = 'rgb('+(r2-17)+','+(g2-17)+','+(b2-17)+')';
-    let root = document.documentElement;
-    let MST = 'drop-shadow(1px 1px 5px '+RGB+') drop-shadow(-1px -1px 10px '+RGB2+')';
-    let MST2 = 'drop-shadow(1px 1px 5px '+RGB3+') drop-shadow(-1px -1px 10px '+RGB4+')';
-    root.style.setProperty('--missions-selTab', MST);
-    root.style.setProperty('--events-selTab', MST2);
-    
-    localStorage.setItem('UBTM-ver', UBTMver);
 }
 
 function createThemeTab() {
@@ -154,7 +24,6 @@ function createThemeTab() {
     const accountInfo = document.querySelector("#accountInfoContents");
     const themeTab = document.createElement("td");
     const themeInfo = document.createElement("div");
-    // const themePopUp = document.createElement("div");
     themeTab.id = "accountTabs-themes";
     themeTab.setAttribute('onclick','loadAccountTab(\'themes\')');
     themeTab.setAttribute('class','unselectedTab');
@@ -183,7 +52,7 @@ function createThemeTab() {
     document.getElementById("jsonInput").addEventListener("keydown", function(event) {
         if (event.key === "Enter" && !event.shiftKey) {
             event.preventDefault();
-            theme(this.value); // Call your function
+            theme(this.value);
         }
     });
     
@@ -208,7 +77,7 @@ function theme(text) {
         co2 = 0xFFEA00;
         jsonInput.style.display = "none";
         jsonLabel.style.display = "none";
-    } else if (text === "custom") { // W.I.P
+    } else if (text === "custom") { // Custom
         jsonInput.style.display = "block";
         jsonLabel.style.display = "block";
     } else {
@@ -323,8 +192,6 @@ function applyMapTint(sprite, colorEnergy, seed = undefined) {
 // Overriding the default preload function, Added values to game.load.image for dynamic changes
 function preload() {
 	console.log("PRELOAD FUNCTION STARTED");
-	// game.load.onLoadStart.add(function() { console.log("START LOAD - " + new Date().getTime()) });
-	// game.load.onLoadComplete.addOnce(finishCreate, this);
 	game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 	game.load.image('body b', bodyB);
 	game.load.image('body_dark', bodyBDark);
@@ -346,15 +213,6 @@ function preload() {
 
 // Overriding the default lazyLoadGameResources function, Added values to game.load.image for dynamic changes
 function lazyLoadGameResources() {
-	// game.load.onLoadComplete.addOnce(function(){
-	// 	console.log("Finished loading all resources");
-	// 	FLAGS.RESOURCES_LOADED = true;
-	// 	if(FLAGS.RESOURCE_LOAD_CALLBACK){
-	// 		FLAGS.RESOURCE_LOAD_CALLBACK();
-	// 	}
-	// }, this);
-	// game.load.onFileComplete.add(fileComplete, this);
-
 	game.load.image("joystickInside", "assets/joystickInside.png");
 	game.load.image("joystickOutside", "assets/joystickOutside.png");
 

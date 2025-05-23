@@ -18,14 +18,12 @@ Instructions for downloading, Inserting, Saving, and opening Developer Tools.
 
 9. Click on "Select folder for overrides"
 
-10. Select the folder that you extracted the contents of the zip folder to
+10. Click on the "ThemeAssetReplacer" folder
 
-11. Click on the "lightMode-UBTM" folder
+11. Click select folder
 
-12. Click select folder
+12. Save all files that have the * in front of them (With ctrl+s on devtools while in source tab and overrides still)
 
-13. Save all files that have the * in front of them (With ctrl+s on devtools while in source tab and overrides still)
+13. Refresh the page (With ctrl+r or F5)
 
-14. Refresh the page (With ctrl+r or F5)
-
-15. Enjoy the mod!
+14. Enjoy the mod!

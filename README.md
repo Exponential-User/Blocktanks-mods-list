@@ -19,37 +19,40 @@ includes custom JSON format for replacing blocktanks assests (No specific order)
 {
   "co1": "HEX color (0x or #)",
   "co2": "HEX color (0x or #)",
-  "arrow": "URL",
-  "arrowB": "URL",
-  "arrowR": "URL",
-  "background": "URL",
-  "backgroundDark": "URL",
-  "backgroundDarko": "URL",
-  "backgroundo": "URL",
-  "bodyB": "URL",
-  "bodyBDark": "URL",
-  "bodyGrey": "URL",
-  "bodyR": "URL",
-  "bubbleB": "URL",
-  "bubbleR": "URL",
-  "bullet": "URL",
-  "bulletB": "URL",
-  "bulletBDark": "URL",
-  "bulletDark": "URL",
-  "bulletR": "URL",
-  "cpBorder": "URL",
-  "crown": "URL",
-  "crownA": "URL",
-  "ctfFlagB": "URL",
-  "ctfFlagR": "URL",
-  "titleTile": "URL"
+  "arrow": "assets/custom/FILENAME",
+  "arrowB": "assets/custom/FILENAME",
+  "arrowR": "assets/custom/FILENAME",
+  "background": "assets/custom/FILENAME",
+  "backgroundDark": "assets/custom/FILENAME",
+  "backgroundDarko": "assets/custom/FILENAME",
+  "backgroundo": "assets/custom/FILENAME",
+  "bodyB": "assets/custom/FILENAME",
+  "bodyBDark": "assets/custom/FILENAME",
+  "bodyGrey": "assets/custom/FILENAME",
+  "bodyR": "assets/custom/FILENAME",
+  "bubbleB": "assets/custom/FILENAME",
+  "bubbleR": "assets/custom/FILENAME",
+  "bullet": "assets/custom/FILENAME",
+  "bulletB": "assets/custom/FILENAME",
+  "bulletBDark": "assets/custom/FILENAME",
+  "bulletDark": "assets/custom/FILENAME",
+  "bulletR": "assets/custom/FILENAME",
+  "cpBorder": "assets/custom/FILENAME",
+  "crown": "assets/custom/FILENAME",
+  "crownA": "assets/custom/FILENAME",
+  "ctfFlagB": "assets/custom/FILENAME",
+  "ctfFlagR": "assets/custom/FILENAME",
+  "ctfArrow": "assets/custom/FILENAME",
+  "ctfArrowB": "assets/custom/FILENAME",
+  "ctfArrowR": "assets/custom/FILENAME",
+  "titleTile": "assets/custom/FILENAME"
 }
 ```
 
 In order to access this you must select custom on the drop menu in the `Themes` tab, the drop menu also contains space and smiles which only puts color/tint on the map instead of the brown.
 
 co1 and co2 are for map coloring/tinting
-> o = original (A bit more saturated, like a bit yellowish. Or just the classic)
+> o = original (A bit yellowish. Or just the classic)
 
 > B = Blue
 
@@ -62,9 +65,13 @@ The background is just the grid,
 crowns are crown and crownA (crownA is a yellow arrow, not sure what it was used for),
 titleTile is the map for the title screen (home screen/main screen).
 
-Unfortantaly you can only input non-CORS images (Or sites that allow anonymous as the request header), for now.
+You can only input images you downloaded in the custom folder. file path: `lightMode-UBTM\blocktanks.net\assets\custom`
 
 More things to replace is coming soon
+
+If assets disappear from the title screen (home screen/main screen) after pressing enter, they will come back after you played a match.
+
+It will not save once you refreashed or go to any community page (clans, user, ...), Make sure to save your JSON in a file or notes.
 
 You can suggest something in the issues or discussions tab! :)
 
@@ -81,3 +88,9 @@ The joining/leaving message only shows to you.
 const delay1 = 750; // At line 5
 ```
 ---
+## ThemeAssetReplacer
+Has the same functions as lightMode-UBTM but without the modified CSS files (normal visuals)
+
+It will not save once you refreashed or go to any community page (clans, user, ...), Make sure to save your JSON in a file or notes.
+
+If you have both this and lightMode-UBTM enabled there will be conflicts!

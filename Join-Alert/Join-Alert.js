@@ -1,3 +1,4 @@
+let currentPlayer1, currentPlayer2;
 let lastPlayers = [];
 let currentPlayers = [];
 
@@ -11,20 +12,21 @@ const delay1 = 500;
 function getData() {
     if (delay1 < 200) {
         clearInterval(interval1);
-        return console.error("Delay is too low! Please set it to 200 or higher!")
+        return console.error("Delay is too low! Please set it to 200 or higher!");
     };
 
-    const newPlayerKeys = [];
+    const newPlayers = [];
 
     for (const key in server_tanks) {
         if (isFull(server_tanks)) {
             if (key.toLowerCase().includes("[bot]")) continue;
 
-            newPlayerKeys.push(key);
+            newPlayers.push(key);
 
             if (!lastPlayers.includes(key)) {
                 if (key !== name) {
                     specialLog('[Join-Alert]', `${key} has joined the match`, false, true);
+                    currentPlayer2 = key;
                 } else {
                     specialLog('[Join-Alert]', 'You have joined the match', false, true);
                 }
@@ -32,12 +34,13 @@ function getData() {
         }
     }
 
-    const leavingPlayers = lastPlayers.filter(player => !newPlayerKeys.includes(player));
+    const leavingPlayers = lastPlayers.filter(player => !newPlayers.includes(player));
     leavingPlayers.forEach(player => {
         specialLog('[Join-Alert]', `${player} has left the match`, false, true);
+        currentPlayer1 = player;
     });
 
-    currentPlayers = [...newPlayerKeys];
+    currentPlayers = [...newPlayers];
     lastPlayers = [...currentPlayers];
 }
 
