@@ -91,6 +91,6 @@ const delay1 = 750; // At line 5
 ## ThemeAssetReplacer
 Has the same functions as lightMode-UBTM but without the modified CSS files (normal visuals)
 
-It will not save once you refreashed or go to any community page (clans, user, ...), Make sure to save your JSON in a file or notes.
+It will not save once you refreshed or go to any community page (clans, user, ...), Make sure to save your JSON in a file or notes.
 
 If you have both this and lightMode-UBTM enabled there will be conflicts!
