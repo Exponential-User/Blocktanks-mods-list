@@ -42,7 +42,7 @@ function createThemeTab() {
                 <option value="custom">Custom</option>
             </select>
             <br></br>
-            <p id="jsonLabel">JSON:</p>
+            <p id="jsonLabel" style="display: none;">JSON:</p>
             <textarea id="jsonInput" name="jsonInput" autocomplete="off" spellcheck="false" placeholder="Enter JSON compatible theme..." style="height: 120px; width: 90%; display: none; padding: 10px; font-family: monospace; resize: vertical;"></textarea>
         </div>`;
 
