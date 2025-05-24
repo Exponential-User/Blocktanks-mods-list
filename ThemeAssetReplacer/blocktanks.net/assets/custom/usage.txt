@@ -1,1 +1,36 @@
 drop a image file then use it in the json to access it
+
+Most of the assets are not down scaled so they must be size perfect
+
+------------------------
+
+Here are a list of affected values:
+
+arrow (116 x 132)
+arrowB (116 x 132)
+arrowR (116 x 132)
+background (30 x 30)
+backgroundo (30 x 30)
+backgroundDark (30 x 30)
+backgroundDarko (30 x 30)
+bodyB (50 x 50)
+bodyBDark (50 x 50)
+bodyGrey (50 x 50)
+bodyR (50 x 50)
+crown (100 x 100)
+crownA (116 x 132)
+ctfFlagB (100 x 100)
+ctfFlagR (100 x 100)
+titleTile (50 x 50)
+
+------------------------
+
+Here are a list of values that you can use any sized images:
+
+bubbleB (100 x 100)
+bubbleR (100 x 100)
+bulletB (19 x 19)
+bulletBDark (19 x 19)
+bulletDark (19 x 19)
+bulletR (19 x 19)
+cpBorder (100 x 101)

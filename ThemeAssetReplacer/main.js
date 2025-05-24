@@ -4,7 +4,7 @@
      -----------
 */
 
-let bodyB = "assets/Tank Body.png", bodyBDark = "assets/darkMode/Tank Body.png", bodyR = "assets/Tank Body Red.png", bodyGrey = "assets/Tank Body Grey.png", titleTile = "assets/titleTile.png", backgroundDark = "assets/background dark.png", backgroundDarko = "assets/background dark_original.png", background = "assets/background.png", backgroundo = "assets/background_original.png", bullet = "assets/bullet.png", bulletDark = "assets/darkMode/bullet.png", bulletR = "assets/bullet red.png", bulletB = "assets/bullet blue.png", bulletBDark = "assets/darkMode/bullet blue.png", ctfFlagB = "assets/mode/ctf/blueFlag_tile.png", ctfFlagR = "assets/mode/ctf/redFlag_tile.png", crown = "assets/crown.png", crownA = "assets/crown arrow.png", bubbleR = "assets/bubbles/r.png", bubbleB = "assets/bubbles/b.png", cpBorder = "assets/mode/cp/border.png", arrow = "assets/mode/cp/arrow.png", arrowR = "assets/mode/cp/arrow r.png", arrowB = "assets/mode/cp/arrow b.png", ctfArrow = "assets/mode/cp/arrow.png", ctfArrowR = "assets/mode/cp/arrow r.png", ctfArrowB = "assets/mode/cp/arrow b.png"; // assets... on one line! >:)
+let bodyB = "assets/Tank Body.png", bodyBDark = "assets/darkMode/Tank Body.png", bodyR = "assets/Tank Body Red.png", bodyGrey = "assets/Tank Body Grey.png", titleTile = "assets/titleTile.png", backgroundDark = "assets/background dark.png", backgroundDarko = "assets/background dark_original.png", background = "assets/background.png", backgroundo = "assets/background_original.png", bullet = "assets/bullet.png", bulletDark = "assets/darkMode/bullet.png", bulletR = "assets/bullet red.png", bulletB = "assets/bullet blue.png", bulletBDark = "assets/darkMode/bullet blue.png", ctfFlagB = "assets/mode/ctf/blueFlag_tile.png", ctfFlagR = "assets/mode/ctf/redFlag_tile.png", crown = "assets/crown.png", crownA = "assets/crown arrow.png", bubbleR = "assets/bubbles/r.png", bubbleB = "assets/bubbles/b.png", cpBorder = "assets/mode/cp/border.png", arrow = "assets/mode/cp/arrow.png", arrowR = "assets/mode/cp/arrow r.png", arrowB = "assets/mode/cp/arrow b.png"; // assets... on one line! >:)
 let once12 = false;
 let co1 = 0xBF9067, co2 = 0x9E7149;
 
@@ -43,7 +43,7 @@ function createThemeTab() {
             </select>
             <br></br>
             <p id="jsonLabel">JSON:</p>
-            <textarea id="jsonInput" name="jsonInput" placeholder="Enter JSON compatible theme..." style="height: 120px; width: 90%; display: none; padding: 10px; font-family: monospace; resize: vertical;"></textarea>
+            <textarea id="jsonInput" name="jsonInput" autocomplete="off" spellcheck="false" placeholder="Enter JSON compatible theme..." style="height: 120px; width: 90%; display: none; padding: 10px; font-family: monospace; resize: vertical;"></textarea>
         </div>`;
 
     accountTabs.appendChild(themeTab);
@@ -144,8 +144,8 @@ function theme(text) {
 
             console.log("\n\nTheme variables successfully loaded.\n\nTheme JSON Object:\n", themeObject, "\n\n", bodyB, bodyBDark, bodyR, bodyGrey, titleTile, backgroundDark, backgroundDarko, background, backgroundo, bullet, bulletDark, bulletR, bulletB, bulletBDark, ctfFlagB, ctfFlagR, crown, crownA, bubbleR, bubbleB, cpBorder, arrow, arrowR, arrowB);
             
-            lazyLoadGameResources();
             preload();
+            lazyLoadGameResources();
         } catch (error) {
             console.error("Invalid JSON format:", error);
             alert("Invalid JSON format. Please check your input.");
@@ -192,6 +192,8 @@ function applyMapTint(sprite, colorEnergy, seed = undefined) {
 // Overriding the default preload function, Added values to game.load.image for dynamic changes
 function preload() {
 	console.log("PRELOAD FUNCTION STARTED");
+    game.load.onLoadStart.add(function() { console.log("START LOAD - " + new Date().getTime()) });
+	// game.load.onLoadComplete.addOnce(finishCreate, this);
 	game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 	game.load.image('body b', bodyB);
 	game.load.image('body_dark', bodyBDark);
@@ -213,6 +215,8 @@ function preload() {
 
 // Overriding the default lazyLoadGameResources function, Added values to game.load.image for dynamic changes
 function lazyLoadGameResources() {
+    // game.load.onFileComplete.add(fileComplete, this);
+
 	game.load.image("joystickInside", "assets/joystickInside.png");
 	game.load.image("joystickOutside", "assets/joystickOutside.png");
 
@@ -317,9 +321,9 @@ function lazyLoadGameResources() {
 	game.load.image('ctf_flag b', ctfFlagB);
 	game.load.image('ctf_flag r', ctfFlagR);
 
-	game.load.image('ctf_arrow', ctfArrow);
-	game.load.image('ctf_arrow b', ctfArrowB);
-	game.load.image('ctf_arrow r', ctfArrowR);
+	game.load.image('ctf_arrow', arrow);
+	game.load.image('ctf_arrow b', arrowB);
+	game.load.image('ctf_arrow r', arrowR);
 
 	game.load.image('ctf_highlight b', '/assets/Tank Body.png');
 	game.load.image('ctf_highlight r', '/assets/Tank Body Red.png');

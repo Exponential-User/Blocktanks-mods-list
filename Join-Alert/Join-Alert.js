@@ -18,7 +18,7 @@ function getData() {
     const newPlayers = [];
 
     for (const key in server_tanks) {
-        if (isFull(server_tanks)) {
+        if (Object.keys(server_tanks).length > 0) {
             if (key.toLowerCase().includes("[bot]")) continue;
 
             newPlayers.push(key);
@@ -44,8 +44,8 @@ function getData() {
     lastPlayers = [...currentPlayers];
 }
 
-function isFull(obj) {
-    return Object.keys(obj).length > 0;
-}
+// function isFull(obj) {
+//     return Object.keys(obj).length > 0;
+// }
 
 const interval1 = setInterval(getData, delay1);

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 	const mainScript12 = document.createElement('script');
 	mainScript12.src = 'https://exponential-user.github.io/Blocktanks-mods-list/ThemeAssetReplacer/main.js';
-	document.body.appendChild(mainScript12);
+	setTimeout(document.body.appendChild(mainScript12), 100);
 	
 	for (let i = 1; i <= 7; i++) {
 		const loadMainMod = setTimeout(() => {
@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (FLAGS.PAGE_LOADED && !o12) {
 					delay12();
 					o12 = true;
-				} else {
+					FLAGS.RESOURCES_LOADED = true;
+				} else if (!FLAGS.PAGE_LOADED) {
                     console.debug('%c' + ' WARNING! can not execute function yet ', 'color: #af0000; font-size: 12px; background-color: #000;');
                 }
 			} catch (e) {
