@@ -21,7 +21,7 @@ crown (100 x 100)
 crownA (116 x 132)
 ctfFlagB (100 x 100)
 ctfFlagR (100 x 100)
-titleTile (50 x 50)
+titleTile (50 x 50, each wall is one pixel big)
 
 ------------------------
 
